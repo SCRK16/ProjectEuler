@@ -1,0 +1,11 @@
+Solution using (n choose k) function:
+
+We start top-left and move to bottom-right
+Use the moves d, r
+On a n*n grid
+We make a total of 2n moves
+n are d
+n are r
+So the total number of routes in (2n choose n)
+
+For a 20*20 grid, this is (40 choose 20) = 137846528820
