@@ -2,18 +2,6 @@ import sys
 sys.path.append("..")
 from euler import sieve
 
-#def sieve(upper):
-#    primes = set()
-#    composites = set()
-#    for i in range(2, upper):
-#        if i not in composites:
-#            primes.add(i)
-#            t = 2
-#            while t * i < upper:
-#                composites.add(t * i)
-#                t += 1
-#    return sorted(primes)
-
 upper = 1000
 primes = sieve(upper)
 
