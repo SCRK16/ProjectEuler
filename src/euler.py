@@ -6,7 +6,6 @@ def generate_polygonals(upper, formula):
     lambda n: n * (n + 1) // 2
     Generate all polygonal numbers less than upper
     """
-
     polygonals = set()
     i = 1
     next = formula(i)
@@ -25,7 +24,6 @@ def generate_polygonals_recursive(upper, formula):
     lambda prev, n: prev + n
     Generate all polygonal numbers less than upper
     """
-    
     polygonals = set()
     i = 1
     next = 1
@@ -40,7 +38,6 @@ def sieve(upper):
     Generate all prime numbers less than upper
     Uses the sieve of Eratosthenes
     """
-
     primes = set()
     composites = set()
     for i in range(2, upper):
