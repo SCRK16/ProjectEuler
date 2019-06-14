@@ -7,8 +7,8 @@ def concatenate(n, m):
 def is_pandigital(n):
     if not 99999999 <= n < 999999999:
         return False
-    digits = {int(i) for i in str(n)}
-    return digits == {1, 2, 3, 4, 5, 6, 7, 8, 9}
+    digits = set(str(n))
+    return digits == {'1', '2', '3', '4', '5', '6', '7', '8', '9'}
 
 best = 0
 
