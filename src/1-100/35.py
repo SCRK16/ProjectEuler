@@ -1,15 +1,6 @@
-def sieve(upper):
-    #Generate all primes below upper using the sieve of Eratosthenes
-    primes = set()
-    composites = set()
-    for i in range(2, upper):
-        if i not in composites:
-            primes.add(i)
-            t = 2
-            while t * i < upper:
-                composites.add(t * i)
-                t += 1
-    return sorted(primes)
+import sys
+sys.path.append("..")
+from euler import sieve
 
 def is_circular_prime(p, primes):
     #Check if p is a circular prime
@@ -20,7 +11,6 @@ def is_circular_prime(p, primes):
             return False
         rotated = rotated[1:] + rotated[:1]
     return True
-    
     
 
 upper = 1000000

@@ -1,6 +1,6 @@
-def is_palindrome(n):
-    ints = [int(i) for i in str(n)]
-    return ints == list(reversed(ints))
+import sys
+sys.path.append("..")
+from euler import is_palindrome
 
 largest = 9009
 for i in range(100, 1000):

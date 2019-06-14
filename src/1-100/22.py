@@ -1,12 +1,8 @@
 import html5lib
 import urllib
-
-def wordscore(name):
-    score = 0
-    for char in name:
-        value = ord(char) - ord('A') + 1
-        score += value
-    return score
+import sys
+sys.path.append("..")
+from euler import wordscore
 
 #Read text from link
 link = "https://projecteuler.net/project/resources/p022_names.txt"
@@ -22,4 +18,3 @@ words = sorted(words)
 result = sum(wordscore(name) * (i+1) for i, name in enumerate(words))
 
 print(result)
-

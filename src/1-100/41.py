@@ -1,14 +1,6 @@
-def sieve(upper):
-    primes = set()
-    composites = set()
-    for i in range(2, upper):
-        if i not in composites:
-            primes.add(i)
-            t = 2
-            while t * i < upper:
-                composites.add(t * i)
-                t += 1
-    return primes
+import sys
+sys.path.append("..")
+from euler import sieve
 
 def num_digits(n):
     return len(str(n))

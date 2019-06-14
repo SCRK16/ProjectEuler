@@ -1,19 +1,12 @@
 import numpy as np
-
-def generate_ngonals(upper, formula):
-    ngonals = set()
-    i = 1
-    next = formula(i)
-    while next < upper:
-        ngonals.add(next)
-        i += 1
-        next = formula(i)
-    return ngonals
+import sys
+sys.path.append("..")
+from euler import generate_polygonals
 
 upper = 10000000
 
 pentagon_formula = lambda n: n * (3*n - 1) // 2
-pentagonals = generate_ngonals(upper, pentagon_formula)
+pentagonals = generate_polygonals(upper, pentagon_formula)
 
 best = np.inf
 

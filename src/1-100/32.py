@@ -1,5 +1,6 @@
-def concatenate(ns):
-    return int(''.join([str(n) for n in ns]))
+import sys
+sys.path.append("..")
+from euler import concatenate
 
 def is_pandigital(n):
     if not 99999999 <= n < 999999999:

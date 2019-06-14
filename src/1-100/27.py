@@ -1,17 +1,9 @@
+import sys
+sys.path.append("..")
+from euler import sieve
+
 def formula(n, a, b):
     return n * (n + a) + b
-
-def sieve(upper):
-    primes = set()
-    composites = set()
-    for i in range(2, upper):
-        if i not in composites:
-            primes.add(i)
-            t = 2
-            while t * i < upper:
-                composites.add(t * i)
-                t += 1
-    return primes
 
 def possible_a(b, primes):
     return (a for a in range(-999, 1000) if a + b + 1 in primes)

@@ -26,6 +26,15 @@ def generate_polygonals_recursive(upper, formula):
     Generate all polygonal numbers less than upper
     """
     
+    polygonals = set()
+    i = 1
+    next = 1
+    while next < upper:
+        polygonals.add(next)
+        i += 1
+        next = formula(next, i)
+    return polygonals
+
 def sieve(upper):
     """
     Generate all prime numbers less than upper
@@ -43,3 +52,53 @@ def sieve(upper):
                 t += 1
     return primes
 
+def digits(n, convert=False):
+    """
+    The digits of n as a list
+    """
+    return [int(x) for x in str(n)] if convert else list(str(n))
+
+def is_palindrome(l):
+    """
+    Check if a list is a palindrome
+    """
+    return l == list(reversed(l))
+
+def factorial(n):
+    """
+    Calculate n!
+    If n! needs to be calculated for many different n,
+    use factorial_memory instead to cache results
+    """
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+def factorial_memory(n, memory):
+    """
+    Factorial with memory
+    Prevents unneeded duplicate calculations by checking the memory for previous results
+    """
+    if n in memory:
+        return memory[n]
+    if n == 0 or n == 1:
+        return 1
+    memory[n] = n * factorial_memory(n - 1, memory)
+    return memory[n]
+
+def wordscore(word):
+    """
+    Calculate the wordscore of a word
+    The score of a letter is its position in the alphabet
+    The score of a word is the sum of the scores of its letters
+    """
+    score = 0
+    for c in word:
+        score += ord(c) - ord('A') + 1
+    return score
+
+def concatenate(ns):
+    """
+    Concatenate a list of numbers
+    """
+    return int(''.join([str(n) for n in ns]))

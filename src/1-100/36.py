@@ -1,5 +1,6 @@
-def is_palindrome(l):
-    return list(reversed(l)) == l
+import sys
+sys.path.append("..")
+from euler import is_palindrome
 
 upper = 1000000
 double_palindromes = []

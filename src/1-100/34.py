@@ -1,8 +1,6 @@
-def factorial(n, memory):
-    if n in memory:
-        return memory[n]
-    memory[n] = n * factorial(n-1, memory)
-    return memory[n]
+import sys
+sys.path.append("..")
+from euler import factorial_memory as factorial
 
 result = 0
 memory = {0: 1, 1: 1}

@@ -1,20 +1,8 @@
-primes = set()
-composites = set()
+import sys
+sys.path.append("..")
+from euler import sieve
 
-# Sieve of Eratosthenes
-i = 2
-while i < 2000000:
-    if i in composites:
-        pass
-    elif i * i > 2000000:
-        primes.add(i)
-    else:
-        primes.add(i)
-        j = 2
-        while i * j < 2000000:
-            composites.add(i * j)
-            j += 1
-    i += 1
-
+upper = 2000000
+primes = sieve(upper)
 result = sum(primes)
 print(result)

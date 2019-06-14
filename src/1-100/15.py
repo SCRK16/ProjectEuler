@@ -1,7 +1,6 @@
-def factorial(n):
-    if n == 0 or n == 1:
-        return 1
-    return n * factorial(n-1)
+import sys
+sys.path.append("..")
+from euler import factorial
 
 def nCk(n, k):
     return factorial(n) // (factorial(k) * factorial(n-k))

@@ -14,5 +14,4 @@ while len(primes) < number:
             primes.append(i)
             break
 
-print(primes)
 print(primes[-1])
