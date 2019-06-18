@@ -8,7 +8,7 @@ def nCr(n, r, memory):
 memory = {}
 count = 0
 for n in range(1, 101):
-    for r in range(0, n+1):
+    for r in range(n):
         if nCr(n, r, memory) > 1000000:
             count += 1
 
