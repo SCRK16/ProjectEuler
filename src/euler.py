@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 def generate_polygonals(upper, formula):
     """
     Generate polygonal numbers (triangle, square, pentagonals, hexagonals, etc.) from a formula
@@ -99,3 +101,65 @@ def concatenate(ns):
     Concatenate a list of numbers
     """
     return int(''.join([str(n) for n in ns]))
+
+def factorize(**kwargs):
+    if "upper" in kwargs:
+        return factorize_below(kwargs["upper"])
+    elif "primes" in kwargs:
+        return factorize_single(kwargs["n"], kwargs["primes"])
+    raise ValueError("Keyword arguments do not match arguments of factorize")
+
+def factorize_below(upper):
+    """
+    Compute the prime factors of all integers x, where 2 <= x < upper
+    """
+    factorizations = defaultdict(lambda: defaultdict(int))
+    for i in range(2, upper):
+        if not factorizations[i]:
+            factorizations[i][i] += 1
+            t = 2
+            while t * i < upper:
+                factorizations[t * i][i] += 1
+                t += 1
+        else:
+            n = i
+            factors = factorizations[i]
+            for p, k in factors.items():
+                n //= p ** k
+            if n != 1:
+                remaining_factors = factorizations[n]
+                for p, k in remaining_factors.items():
+                    factorizations[i][p] += k
+    return factorizations
+
+def factorize_single(n, primes):
+    """
+    Compute the prime factors of a postive integer n
+    """
+    factors = defaultdict(int)
+    for p in primes:
+        while n % p == 0:
+            factors[p] += 1
+            n //= p
+        if n == 1:
+            break
+    return factors
+
+def totient(upper, factorizations):
+    """
+    Calculate Euler's Totient function (phi) for all integers below upper
+    """
+    phi = {}
+    for n in range(2, upper):
+        factors = factorizations[n]
+        if len(factors) == 1:
+            p, k = list(factors.items())[0]
+            phi[n] = (p ** (k-1)) * (p-1)
+        else:
+            t = 1
+            for p, k in factors.items():
+                m = p ** k
+                t *= phi[m]
+            phi[n] = t
+    return phi
+
