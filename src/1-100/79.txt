@@ -1,0 +1,5 @@
+Done by hand.  
+There are no 3 digit numbers with duplicates, so we can assume that all digits are unique.
+If a number appears before another number in a 3 digit number, then it appears before it in the code.
+We can sort the numbers according to that rule.
+The result is the answer.
