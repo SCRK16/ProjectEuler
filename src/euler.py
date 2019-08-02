@@ -100,7 +100,7 @@ def concatenate(ns):
     """
     Concatenate a list of numbers
     """
-    return int(''.join([str(n) for n in ns]))
+    return int(''.join(str(n) for n in ns))
 
 def factorize(**kwargs):
     if "upper" in kwargs:
